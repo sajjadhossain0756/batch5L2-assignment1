@@ -62,18 +62,37 @@ function processValue(value) {
 const res7 = processValue('hello');
 const res8 = processValue(10);
 function getMostExpensiveProduct(products) {
-    const expensiveProduct = products.sort((a, b) => b.price - a.price);
-    const res9 = expensiveProduct[0];
-    if (res9) {
-        return res9;
+    const sortedProducts = products.sort((a, b) => b.price - a.price);
+    const expensiveProduct = sortedProducts[0];
+    if (expensiveProduct) {
+        return expensiveProduct;
     }
     return null;
 }
 const products = [
-    { name: "Pen", price: 70 },
+    { name: "Pen", price: 10 },
     { name: "Notebook", price: 25 },
     { name: "Bag", price: 50 }
 ];
 const res10 = getMostExpensiveProduct(products);
-console.log(res10);
+// console.log(res10)
 // Output: { name: "Bag", price: 50 }
+var Day;
+(function (Day) {
+    Day[Day["Monday"] = 0] = "Monday";
+    Day[Day["Tuesday"] = 1] = "Tuesday";
+    Day[Day["Wednesday"] = 2] = "Wednesday";
+    Day[Day["Thursday"] = 3] = "Thursday";
+    Day[Day["Friday"] = 4] = "Friday";
+    Day[Day["Saturday"] = 5] = "Saturday";
+    Day[Day["Sunday"] = 6] = "Sunday";
+})(Day || (Day = {}));
+function getDayType(day) {
+    if (day === Day.Monday || day === Day.Tuesday || day === Day.Wednesday ||
+        day === Day.Thursday || day === Day.Friday) {
+        return `Weekday`;
+    }
+    return `Weekend`;
+}
+const res11 = getDayType(Day.Monday);
+console.log(res11);
