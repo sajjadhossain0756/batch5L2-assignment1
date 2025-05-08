@@ -139,4 +139,24 @@ function getDayType(day: Day): string {
 
 const res11 = getDayType(Day.Monday);
 
-console.log(res11)
+// console.log(res11)
+
+async function squareAsync(n: number): Promise<number>{
+    console.log('calling');
+    if(n >=0){
+        return new Promise((resolve)=>{
+              setTimeout(() => {
+                   resolve(n * n)
+              }, 1000);
+        })
+    }else{
+        return new Promise((reject)=>{
+            setTimeout(() => {
+                throw new Error(`Negative Number Not Allowed`)
+            }, 1000);
+        })
+    }
+}
+
+squareAsync(8).then(console.log);        // Output after 1s: 16
+// squareAsync(-3).catch(console.error);    // Output: Error: Negative number not allowed
